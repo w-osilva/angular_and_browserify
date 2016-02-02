@@ -10,15 +10,22 @@ var gulpPlugins = require('gulp-load-plugins')({
     pattern: ['gulp-*', 'gulp.*'],
     replaceString: /\bgulp[\-.]/
 });
+var bower = require('gulp-bower');
 
 // Define file path variables
 var paths = {
-    root: '',      // App root path
-    src:  'app/',   // Source path
-    dist:  'dist/',   // Distribuition path
-    test: 'test/'     // Test path
+    root: '',
+    src:  'app/',
+    dist:  'dist/',
+    test: 'test/',
+    node: 'node_modules/',
+    bower: 'bower_components'
 };
 
+gulp.task('default', [
+    'bower',
+    'browserify'
+]);
 
 gulp.task('browserify', function () {
     return browserify(paths.src + 'app.js', {debug: true})
@@ -26,5 +33,10 @@ gulp.task('browserify', function () {
         .pipe(source('app.js'))
         .pipe(gulp.dest(paths.dist))
         .pipe(gulpPlugins.connect.reload());
+});
+
+gulp.task('bower', function() {
+    return bower()
+        .pipe(gulp.dest(paths.bower));
 });
 

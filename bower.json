@@ -1,0 +1,26 @@
+{
+  "name": "angular_and_browserify",
+  "version": "0.0.1",
+  "homepage": "https://github.com/w-osilva/angular_and_browserify",
+  "authors": [
+    "Washington Silva <w-osilva@hotmail.com>"
+  ],
+  "description": "Application Test",
+  "main": "gulpfile.js",
+  "keywords": [
+    "Angular",
+    "Browserify",
+    "Gulp"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ng-module": "~0.0.3"
+  }
+}
